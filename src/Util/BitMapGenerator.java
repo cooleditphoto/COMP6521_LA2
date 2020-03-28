@@ -1,13 +1,14 @@
 package Util;
 
 import java.io.*;
+import java.util.HashMap;
 
 public class BitMapGenerator {
 
     public static void main(String[] args) throws IOException {
         String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap.txt";
-        generate(inputPath,outputPath,10000);
+        generate(inputPath,outputPath,DataGenerator.num);
     }
 
     /**
@@ -22,25 +23,27 @@ public class BitMapGenerator {
         FileWriter fileWriter =new FileWriter(outputPath);
         PrintWriter printWriter = new PrintWriter(fileWriter);
 
-        int[][] res = new int[1000][dataNum];
-        for(int i=0;i<1000;i++){
+        int[][] res = new int[10][dataNum];
+        for(int i=0;i<10;i++){
             for(int j=0;j<dataNum;j++){
                 res[i][j]=0;
             }
         }
+
         int p=0;
         String str = null;
         while((str=bufferedReader.readLine())!=null){
-            Integer num = Integer.parseInt(str.substring(44,47));
+            Integer num = Integer.parseInt(str.substring(47,48));
             res[num][p]=1;
             p++;
         }
-        for(int i=0;i<1000;i++){
+        for(int i=0;i<10;i++){
             for(int j=0;j<dataNum;j++){
                 printWriter.print(res[i][j]);
             }
             printWriter.println();
         }
+
         printWriter.close();
         fileWriter.close();
         bufferedReader.close();

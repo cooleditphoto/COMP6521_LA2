@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class DataGenerator {
 
+    static int num = 100;
 
     /**
      * data generator
@@ -17,7 +18,6 @@ public class DataGenerator {
      */
     public static void main(String[] args) throws IOException {
         String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
-        int num = 10000;
         generate(num,path);
     }
 
