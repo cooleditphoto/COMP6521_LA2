@@ -4,15 +4,15 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class BitMapGenerator2 {
+public class DptBitMapGenerator {
 
     public static void main(String[] args) throws IOException {
         String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap.txt";
-        generate(inputPath,outputPath, DataGenerator.num);
+        generate(inputPath,outputPath);
     }
 
-    public static void generate(String inputPath,String outputPath,int dataNum) throws IOException {
+    public static void generate(String inputPath,String outputPath) throws IOException {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         FileWriter fileWriter =new FileWriter(outputPath);

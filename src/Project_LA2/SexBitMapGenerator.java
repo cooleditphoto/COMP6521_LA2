@@ -3,7 +3,7 @@ package Project_LA2;
 import java.io.*;
 import java.util.HashSet;
 
-public class BitMapGenerator3 {
+public class SexBitMapGenerator {
 
     public static void main(String[] args) throws IOException {
         String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
