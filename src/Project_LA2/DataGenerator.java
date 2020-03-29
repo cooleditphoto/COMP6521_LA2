@@ -1,4 +1,4 @@
-package Util;
+package Project_LA2;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +9,8 @@ import java.util.Random;
 
 public class DataGenerator {
 
-    static int num = 100;
+    static int num = 1000;
+
 
     /**
      * data generator
