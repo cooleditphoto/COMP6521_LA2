@@ -15,7 +15,7 @@ public class FindRecordTest {
         String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         RandomAccessFile file = new RandomAccessFile(path, "rw");
         ArrayList<Integer> list  = new ArrayList<>();
-        for(int i=0;i<1000;i++){
+        for(int i=1;i<=1000;i++){
             list.add(i);
         }
         FileReader fileReader = new FileReader(path);
