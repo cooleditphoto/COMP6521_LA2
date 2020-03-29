@@ -1,16 +1,15 @@
-package Util;
+package Project_LA2;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 
 public class BitMapGenerator2 {
 
     public static void main(String[] args) throws IOException {
         String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap.txt";
-        generate(inputPath,outputPath,DataGenerator.num);
+        generate(inputPath,outputPath, DataGenerator.num);
     }
 
     public static void generate(String inputPath,String outputPath,int dataNum) throws IOException {
@@ -49,9 +48,9 @@ public class BitMapGenerator2 {
                         HashSet resSet = map.get(opt);
                         for(int p=1;p<=num;p++){
                             if(resSet.contains(p)){
-                                sb.append('1');
+                                sb.append(1);
                             }else{
-                                sb.append('0');
+                                sb.append(0);
                             }
                         }
                         printWriter.println(sb.toString());

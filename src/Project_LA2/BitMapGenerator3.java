@@ -1,48 +1,46 @@
-package Util;
+package Project_LA2;
 
 import java.io.*;
-import java.util.HashMap;
+import java.util.HashSet;
 
-public class BitMapGenerator {
+public class BitMapGenerator3 {
 
     public static void main(String[] args) throws IOException {
         String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap.txt";
-        generate(inputPath,outputPath,DataGenerator.num);
+        generate(inputPath,outputPath, DataGenerator.num);
     }
 
-    /**
-     * generate bitmap file
-     * @param inputPath
-     * @param outputPath
-     * @throws IOException
-     */
     public static void generate(String inputPath,String outputPath,int dataNum) throws IOException {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         FileWriter fileWriter =new FileWriter(outputPath);
         PrintWriter printWriter = new PrintWriter(fileWriter);
 
-        int[][] res = new int[10][dataNum];
-        for(int i=0;i<10;i++){
-            for(int j=0;j<dataNum;j++){
-                res[i][j]=0;
+        //store all line number with 0
+        HashSet<Integer> set = new HashSet<>();
+        String str = null;
+        int num = 0;
+        while((str=bufferedReader.readLine())!=null){
+            num++;
+            if(str.substring(43,44).equals("0")){
+                set.add(num);
             }
         }
 
-        int p=0;
-        String str = null;
-        while((str=bufferedReader.readLine())!=null){
-            Integer num = Integer.parseInt(str.substring(47,48));
-            res[num][p]=1;
-            p++;
-        }
-        for(int i=0;i<10;i++){
-            for(int j=0;j<dataNum;j++){
-                printWriter.print(res[i][j]);
+        StringBuffer sb = new StringBuffer();
+        StringBuffer sb2 = new StringBuffer();
+        for(int i=1;i<=num;i++){
+            if(set.contains(i)){
+                sb.append(1);
+                sb2.append(0);
+            }else{
+                sb.append(0);
+                sb2.append(1);
             }
-            printWriter.println();
         }
+        printWriter.println(sb.toString());
+        printWriter.println(sb2.toString());
 
         printWriter.close();
         fileWriter.close();
