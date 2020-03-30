@@ -34,7 +34,7 @@ public class IDBitMapGeneratorLimitMemory {
             while((str=bufferedReader.readLine())!=null&&num<=lineNum){
                 num++;
                 String id = str.substring(0,8);
-                //System.out.println(dpt);
+                //the key is id, the value is line num
                 if(!map.containsKey(id)){
                     HashSet<Integer> set = new HashSet<>();
                     set.add(num);
@@ -56,6 +56,7 @@ public class IDBitMapGeneratorLimitMemory {
                                     for (int a7=0;a7<10;a7++){
                                         for (int a8=0;a8<10;a8++){
                                             String opt = ""+a1+a2+a3+a4+a5+a6+a7+a8;
+                                            //check existing the id
                                             if(map.containsKey(opt)){
                                                 StringBuffer sb = new StringBuffer();
                                                 HashSet resSet = map.get(opt);
@@ -66,6 +67,7 @@ public class IDBitMapGeneratorLimitMemory {
                                                         sb.append(0);
                                                     }
                                                 }
+                                                //print a single line
                                                 printWriter.println(opt+sb.toString());
                                             }
                                         }
