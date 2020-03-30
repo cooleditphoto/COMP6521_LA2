@@ -17,6 +17,7 @@ public class IDBitMapGeneratorLimitMemory {
         generate(inputPath,outputPath,lineNum);
         long time2 = new Date().getTime();
         System.out.println(time2-time1);
+        System.out.println((time2-time1)/60);
     }
 
     public static void generate(String inputPath,String outputPath,int lineNum) throws IOException {
@@ -24,7 +25,7 @@ public class IDBitMapGeneratorLimitMemory {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        for(int q =0;q<10;q++){
+        for(int q =0;q<100;q++){
             FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<String, HashSet<Integer>> map= new HashMap<>();

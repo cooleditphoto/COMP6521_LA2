@@ -8,12 +8,14 @@ import java.util.HashSet;
 public class IDBitMapGenerator {
 
     public static void main(String[] args) throws IOException {
+
         long time1 = new Date().getTime();
         String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap.txt";
         generate(inputPath,outputPath);
         long time2 = new Date().getTime();
         System.out.println(time2-time1);
+
     }
 
     public static void generate(String inputPath,String outputPath) throws IOException {

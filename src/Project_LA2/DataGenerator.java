@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class DataGenerator {
 
-    static int num = 1000;
-
+    static int num = 1000000;
+    
 
     /**
      * data generator
@@ -54,9 +54,17 @@ public class DataGenerator {
         String[] day = {"01","02","03","04","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28"};
         dayList = Arrays.asList(day);
         Random random=new Random();
-        for(int i=0;i<8;i++){
-            int idNum=random.nextInt(str.length());
-            sb.append(str.charAt(idNum));
+        int idNum1=random.nextInt(str.length());
+        int idNum2=random.nextInt(str.length());
+        int idNum3=random.nextInt(str.length());
+        for(int i=0;i<3;i++){
+            sb.append(str.charAt(idNum1));
+        }
+        for(int i=0;i<3;i++){
+            sb.append(str.charAt(idNum2));
+        }
+        for(int i=0;i<2;i++){
+            sb.append(str.charAt(idNum3));
         }
 
         sb.append("201");
