@@ -10,27 +10,28 @@ import java.util.HashSet;
 public class IDBitMapGeneratorLimitMemory {
 
     public static void main(String[] args) throws IOException {
+        int lineNum = 10000;
         long time1 = new Date().getTime();
-        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
-        String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap.txt";
-        generate(inputPath,outputPath);
+        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/sample1.txt";
+        String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap";
+        generate(inputPath,outputPath,lineNum);
         long time2 = new Date().getTime();
         System.out.println(time2-time1);
     }
 
-    public static void generate(String inputPath,String outputPath) throws IOException {
+    public static void generate(String inputPath,String outputPath,int lineNum) throws IOException {
 
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         for(int q =0;q<10;q++){
-            FileWriter fileWriter =new FileWriter(outputPath+q);
+            FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<String, HashSet<Integer>> map= new HashMap<>();
             int num = 0;
             String str = null;
             //store the data file information in the map
-            while((str=bufferedReader.readLine())!=null&&num<=100000){
+            while((str=bufferedReader.readLine())!=null&&num<=lineNum){
                 num++;
                 String id = str.substring(0,8);
                 //System.out.println(dpt);
@@ -65,7 +66,7 @@ public class IDBitMapGeneratorLimitMemory {
                                                         sb.append(0);
                                                     }
                                                 }
-                                                printWriter.println(sb.toString());
+                                                printWriter.println(opt+sb.toString());
                                             }
                                         }
                                     }
