@@ -7,7 +7,7 @@ public class Configuration {
     public final static int BLOCK_SIZE = 4000;
 
     //configure the input and output file path
-    public static String TEST_PATH = "src/Data_Files/test01.txt";
+    public static String TEST_PATH = "src/Data_Files/Temp/sample1.txt";
     public static String OUTPUT_PATH = "src/Data_Files/output.txt";
 //    public static String TEXT1_PATH = "src/Data_Files/test01.txt";
 //    public static String TEXT2_PATH = "src/Data_Files/sample2.txt";

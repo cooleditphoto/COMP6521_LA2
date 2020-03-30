@@ -12,8 +12,8 @@ public class IDBitMapGeneratorLimitMemory {
     public static void main(String[] args) throws IOException {
         int lineNum = 10000;
         long time1 = new Date().getTime();
-        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/sample1.txt";
-        String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap";
+        String inputPath = Configuration.TEST_PATH;
+        String outputPath = Configuration.TEMP_CONTENT;
         generate(inputPath,outputPath,lineNum);
         long time2 = new Date().getTime();
         System.out.println(time2-time1);
@@ -24,6 +24,7 @@ public class IDBitMapGeneratorLimitMemory {
 
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
+        int st=0;
 
         for(int q =0;q<100;q++){
             /*FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
@@ -83,10 +84,11 @@ public class IDBitMapGeneratorLimitMemory {
             FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<Integer, HashSet<Integer>> map= new HashMap<>();
-            int num = 50;
+            int num = 0;
             String str = null;
-            while((str=bufferedReader.readLine())!=null&&num<=lineNum){
+            while(( (num<lineNum)&&(str=bufferedReader.readLine())!=null)){
                 num++;
+                st++;
                 Integer id = Integer.parseInt(str.substring(0,8));
                 //the key is id, the value is line num
                 if(!map.containsKey(id)){
@@ -114,15 +116,13 @@ public class IDBitMapGeneratorLimitMemory {
                     printWriter.println(sb.toString());
                 }
             }
+            System.out.println(num);
             printWriter.close();
             fileWriter.close();
         }
 
+        System.out.println(st);
         bufferedReader.close();
         fileReader.close();
-
-
-
-
     }
 }
