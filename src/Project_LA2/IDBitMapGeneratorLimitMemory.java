@@ -10,9 +10,9 @@ import java.util.HashSet;
 public class IDBitMapGeneratorLimitMemory {
 
     public static void main(String[] args) throws IOException {
-        int lineNum = 20000;
+        int lineNum = 10000;
         long time1 = new Date().getTime();
-        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/sample1.txt";
+        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap";
         generate(inputPath,outputPath,lineNum);
         long time2 = new Date().getTime();
@@ -25,7 +25,7 @@ public class IDBitMapGeneratorLimitMemory {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        for(int q =0;q<50;q++){
+        for(int q =0;q<10;q++){
             FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<String, HashSet<Integer>> map= new HashMap<>();
@@ -56,16 +56,6 @@ public class IDBitMapGeneratorLimitMemory {
                                 for (int a6=0;a6<10;a6++){
                                     for (int a7=0;a7<10;a7++){
                                         for (int a8=0;a8<10;a8++){
-                                            /*StringBuffer stringBuffer = new StringBuffer();
-                                            stringBuffer.append(a1);
-                                            stringBuffer.append(a2);
-                                            stringBuffer.append(a3);
-                                            stringBuffer.append(a4);
-                                            stringBuffer.append(a5);
-                                            stringBuffer.append(a6);
-                                            stringBuffer.append(a7);
-                                            stringBuffer.append(a8);
-                                            String opt = stringBuffer.toString();*/
                                             String opt = ""+a1+a2+a3+a4+a5+a6+a7+a8;
                                             //check existing the id
                                             if(map.containsKey(opt)){
