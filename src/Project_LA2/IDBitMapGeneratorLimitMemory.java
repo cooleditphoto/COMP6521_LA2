@@ -12,7 +12,7 @@ public class IDBitMapGeneratorLimitMemory {
     public static void main(String[] args) throws IOException {
         int lineNum = 10000;
         long time1 = new Date().getTime();
-        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
+        String inputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/sample1.txt";
         String outputPath = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/bitmap";
         generate(inputPath,outputPath,lineNum);
         long time2 = new Date().getTime();
@@ -25,8 +25,8 @@ public class IDBitMapGeneratorLimitMemory {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        for(int q =0;q<10;q++){
-            FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
+        for(int q =0;q<100;q++){
+            /*FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<String, HashSet<Integer>> map= new HashMap<>();
             int num = 0;
@@ -78,12 +78,12 @@ public class IDBitMapGeneratorLimitMemory {
                         }
                     }
                 }
-            }
+            }*/
 
-            /*FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
+            FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<Integer, HashSet<Integer>> map= new HashMap<>();
-            int num = 0;
+            int num = 50;
             String str = null;
             while((str=bufferedReader.readLine())!=null&&num<=lineNum){
                 num++;
@@ -113,7 +113,7 @@ public class IDBitMapGeneratorLimitMemory {
                     //print a single line
                     printWriter.println(sb.toString());
                 }
-            }*/
+            }
             printWriter.close();
             fileWriter.close();
         }
