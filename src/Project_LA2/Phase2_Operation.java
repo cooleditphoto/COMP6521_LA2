@@ -16,7 +16,7 @@ public class Phase2_Operation {
     public  String[] File_Address(int sublists_num) throws IOException{
         String[] file_address = new String[sublists_num];
         for (int i=1;i<=sublists_num;i++){
-            file_address[i-1] = Configuration.TEMP_CONTENT + i + ".txt";
+            file_address[i-1] = Configuration.TEMP_CONTENT + (i-1) + ".txt";
         }
         return  file_address;
     }
@@ -109,7 +109,7 @@ public class Phase2_Operation {
             String line = fr.findRecordFromFile(Configuration.TEST_PATH,index.get(i));
             all_line.add(line);
         }
-        System.out.println(all_line.get(0));
+        //System.out.println(all_line.get(0));
         //取出最近日期的值
         String newest_line = all_line.get(0);
         for (int i=1; i<all_line.size(); i++){

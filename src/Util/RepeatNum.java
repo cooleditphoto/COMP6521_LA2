@@ -9,10 +9,10 @@ public class RepeatNum {
 
     public static void main(String[] args) throws IOException {
         int num = 0;
-        String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/sample1.txt";
+        String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt";
         FileReader fileReader = new FileReader(path);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String path2 = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/sample2.txt";
+        String path2 = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample2.txt";
         FileReader fileReader2 = new FileReader(path2);
         BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
         HashSet<String> set =new HashSet<>();
@@ -20,10 +20,10 @@ public class RepeatNum {
         while((str=bufferedReader.readLine())!=null){
             set.add(str.substring(0,8));
         }
-        /*while((str=bufferedReader2.readLine())!=null){
+        while((str=bufferedReader2.readLine())!=null){
             set.add(str.substring(0,8));
             num++;
-        }*/
+        }
         System.out.println(num);
         System.out.println(set.size());
         bufferedReader2.close();

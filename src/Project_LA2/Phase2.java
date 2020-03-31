@@ -106,7 +106,7 @@ public class Phase2 {
 //
 //        assert content != null;
         //sublists_num
-        param[0] = 2;
+        param[0] = 150;
         //sublists_size
         param[1] = sublists_size;
         //memory_sublists_size(sublist, buffereader, buffer_list and others in memeory)
