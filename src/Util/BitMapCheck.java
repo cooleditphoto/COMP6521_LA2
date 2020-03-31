@@ -83,7 +83,7 @@ public class BitMapCheck {
     }
 
     public static String getMax(HashSet<String> set){
-        String res = "999999999999-99-99";
+        String res = "000000000000-00-00";
         Iterator it = set.iterator();
         while(it.hasNext()){
             String str = (String) it.next();
