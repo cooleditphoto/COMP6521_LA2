@@ -97,22 +97,22 @@ public class Phase2_Operation {
         int a = txt.indexOf("1");
         ArrayList<Integer> index = new ArrayList<Integer>();
         while (a != -1) {
-            index.add(a+1);
+            index.add(a);
             a = txt.indexOf(txt, a + 1);    //*从这个索引往后开始第一个出现的位置
         }
-
+        System.out.println(num*10000+index.get(0));
         //取出重复值
         FindRecord fr = new FindRecord();
         ArrayList<String> all_line = new ArrayList<>();
         if  (num < 100){
             for (int i=0; i<index.size(); i++){
-                String line = fr.findRecordFromFile(Configuration.TEST_PATH,num*10000+index.get(i));
+                String line = fr.findRecordFromFile(Configuration.TEST_PATH,num*10000+index.get(i)+1);
                 all_line.add(line);
             }
         }
         else{
             for (int i=0; i<index.size(); i++){
-                String line = fr.findRecordFromFile(Configuration.TEST_PATH2,(num-100)*10000+index.get(i));
+                String line = fr.findRecordFromFile(Configuration.TEST_PATH2,(num-100)*10000+index.get(i)+1);
                 all_line.add(line);
             }
         }
