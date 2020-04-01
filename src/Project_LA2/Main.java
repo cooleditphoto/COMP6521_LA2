@@ -3,7 +3,7 @@ package Project_LA2;
 import java.io.IOException;
 import java.util.Date;
 
-public class main {
+public class Main {
     public static void main(String[] args) throws IOException {
         Phase2 phase2 = new Phase2();
 
