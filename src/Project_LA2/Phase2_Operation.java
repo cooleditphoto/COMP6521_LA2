@@ -76,7 +76,7 @@ public class Phase2_Operation {
                 break;
             }
             else{
-                fetch_sublist.add(newest_data(txt));     //此处添加每行重复值中的最新日期数据
+                fetch_sublist.add(newest_data(txt,index));     //此处添加每行重复值中的最新日期数据
             }
 
         }
@@ -92,7 +92,7 @@ public class Phase2_Operation {
      * @throws IOException
      */
 
-    public String newest_data(String txt) throws IOException{
+    public String newest_data(String txt,int num) throws IOException{
         //检测哪几行是重复的
         int a = txt.indexOf("1");
         ArrayList<Integer> index = new ArrayList<Integer>();
@@ -101,15 +101,24 @@ public class Phase2_Operation {
             a = txt.indexOf(txt, a + 1);    //*从这个索引往后开始第一个出现的位置
         }
 
-
         //取出重复值
         FindRecord fr = new FindRecord();
         ArrayList<String> all_line = new ArrayList<>();
-        for (int i=0; i<index.size(); i++){
-            String line = fr.findRecordFromFile(Configuration.TEST_PATH,index.get(i));
-            all_line.add(line);
+        if  (num < 100){
+            for (int i=0; i<index.size(); i++){
+                String line = fr.findRecordFromFile(Configuration.TEST_PATH,num*10000+index.get(i));
+                all_line.add(line);
+            }
         }
-        //System.out.println(all_line.get(0));
+        else{
+            for (int i=0; i<index.size(); i++){
+                String line = fr.findRecordFromFile(Configuration.TEST_PATH2,(num-100)*10000+index.get(i));
+                all_line.add(line);
+            }
+        }
+
+
+
         //取出最近日期的值
         String newest_line = all_line.get(0);
         for (int i=1; i<all_line.size(); i++){

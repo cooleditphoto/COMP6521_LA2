@@ -12,7 +12,7 @@ public class IDBitMapGeneratorLimitMemory {
     public static void main(String[] args) throws IOException {
         int lineNum = 10000;
         long time1 = new Date().getTime();
-        String inputPath = Configuration.TEST_PATH;
+        String inputPath = Configuration.TEST_PATH2;
         String outputPath = Configuration.TEMP_CONTENT;
         generate(inputPath,outputPath,lineNum);
         long time2 = new Date().getTime();
@@ -26,7 +26,7 @@ public class IDBitMapGeneratorLimitMemory {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         int st=0;
 
-        for(int q =0;q<100;q++){
+        for(int q =100;q<150;q++){
             /*FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<String, HashSet<Integer>> map= new HashMap<>();
