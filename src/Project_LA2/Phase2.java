@@ -108,7 +108,7 @@ public class Phase2 {
         //sublists_num
         param[0] = 150;
         //sublists_size
-        param[1] = sublists_size;
+        param[1] = 10000;
         //memory_sublists_size(sublist, buffereader, buffer_list and others in memeory)
         param[2] = (int) (totalMemory/Configuration.TUPLE_SIZE / (param[0]*5));
         return param;
