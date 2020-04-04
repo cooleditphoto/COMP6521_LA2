@@ -93,14 +93,12 @@ public class Phase2_Operation {
      */
 
     public String newest_data(String txt,int num) throws IOException{
-        //检测哪几行是重复的
-        int a = txt.indexOf("1");
         ArrayList<Integer> index = new ArrayList<Integer>();
-        while (a != -1) {
-            index.add(a);
-            a = txt.indexOf(txt, a + 1);    //*从这个索引往后开始第一个出现的位置
+        for(int i=0;i<txt.length();i++){
+            if(txt.charAt(i)=='1'){
+                index.add(i);
+            }
         }
-        System.out.println(num*10000+index.get(0));
         //取出重复值
         FindRecord fr = new FindRecord();
         ArrayList<String> all_line = new ArrayList<>();
@@ -240,20 +238,3 @@ public class Phase2_Operation {
         return lines;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
