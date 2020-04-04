@@ -8,12 +8,8 @@ public class Configuration {
 
     //configure the input and output file path
     public static String TEST_PATH = "src/Data_Files/sample1.txt";
-    public static String OUTPUT_PATH = "src/Data_Files/output.txt";
     public static String TEST_PATH2 = "src/Data_Files/sample2.txt";
-//    public static String TEXT2_PATH = "src/Data_Files/sample2.txt";
-//    public static String TEMP_PATH = "src/Data_Files/Temp/phase2_original";
     public static String TEMP_CONTENT = "src/Data_Files/Temp/";
-//    public static String OUTPUT_PATH = "src/Data_Files/phase2_original.txt";
-    public static String PHASE2_OUTPUT = "src/Data_Files/phase2_output.txt";
+    public static String PHASE2_OUTPUT = "src/Data_Files/Temp/phase2_output.txt";
     
 }

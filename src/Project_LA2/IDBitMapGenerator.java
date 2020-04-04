@@ -1,31 +1,34 @@
 package Project_LA2;
 
-import Project_LA2.DataGenerator;
-
 import java.io.*;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class IDBitMapGeneratorLimitMemory {
+public class IDBitMapGenerator {
 
     public static void main(String[] args) throws IOException {
         int lineNum = 10000;
-        long time1 = new Date().getTime();
-        String inputPath = Configuration.TEST_PATH2;
+        String inputPath1 = Configuration.TEST_PATH;
         String outputPath = Configuration.TEMP_CONTENT;
-        generate(inputPath,outputPath,lineNum);
-        long time2 = new Date().getTime();
-        System.out.println(time2-time1);
-        System.out.println((time2-time1)/60);
+        generate(inputPath1,outputPath,lineNum,0,100);
     }
 
-    public static void generate(String inputPath,String outputPath,int lineNum) throws IOException {
+    public  void start() throws IOException {
+        int lineNum = 10000;
+        String inputPath1 = Configuration.TEST_PATH;
+        String inputPath2 = Configuration.TEST_PATH2;
+        String outputPath = Configuration.TEMP_CONTENT;
+        generate(inputPath1,outputPath,lineNum,0,100);
+        generate(inputPath2,outputPath,lineNum,100,150);
+
+    }
+
+    public static void generate(String inputPath,String outputPath,int lineNum,int startNum,int endNum) throws IOException {
 
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        for(int q =100;q<150;q++){
+        for(int q =startNum;q<endNum;q++){
             FileWriter fileWriter =new FileWriter(outputPath+q+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             HashMap<Integer, HashSet<Integer>> map= new HashMap<>();
