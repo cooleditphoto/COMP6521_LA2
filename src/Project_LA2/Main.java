@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Phase2 phase2 = new Phase2();
+        MergeFiles mergeFiles = new MergeFiles();
         IDBitMapGenerator idBitMapGenerator = new IDBitMapGenerator();
 
         //get memory size
@@ -24,7 +24,7 @@ public class Main {
 
         //bitmap file merge phase
         Date date3 = new Date();
-        phase2.start(totalMemory);
+        mergeFiles.start(totalMemory);
         Date date4 = new Date();
         long time3;
         time3 = date4.getTime()-date3.getTime();

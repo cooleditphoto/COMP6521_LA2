@@ -8,16 +8,16 @@ public class IDBitMapGenerator {
 
     public static void main(String[] args) throws IOException {
         int lineNum = 10000;
-        String inputPath1 = Configuration.TEST_PATH;
-        String outputPath = Configuration.TEMP_CONTENT;
+        String inputPath1 = Configuration.path1;
+        String outputPath = Configuration.tempContent;
         generate(inputPath1,outputPath,lineNum,0,100);
     }
 
     public  void start() throws IOException {
         int lineNum = 10000;
-        String inputPath1 = Configuration.TEST_PATH;
-        String inputPath2 = Configuration.TEST_PATH2;
-        String outputPath = Configuration.TEMP_CONTENT;
+        String inputPath1 = Configuration.path1;
+        String inputPath2 = Configuration.path2;
+        String outputPath = Configuration.tempContent;
         generate(inputPath1,outputPath,lineNum,0,100);
         generate(inputPath2,outputPath,lineNum,100,150);
 

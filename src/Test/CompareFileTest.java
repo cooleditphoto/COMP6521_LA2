@@ -1,5 +1,6 @@
 package Test;
 
+import Project_LA2.Configuration;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class CompareFileTest {
     @Test
     public void test01() throws IOException {
 
-        String path1 = "/Users/wujiaqi/comp6521/output/output.txt";
+        String path1 = Configuration.idOutput;
         String path2 = "/Users/wujiaqi/Desktop/phase2_output.txt";
         boolean flag = false;
         FileReader fr1 = new FileReader(path1);
@@ -29,7 +30,7 @@ public class CompareFileTest {
         while(num<824450){
             str1 = br1.readLine();
             str2 = br2.readLine();
-            if(!str1.equals(str2)){
+            if(!str1.substring(0,18).equals(str2.substring(0,18))){
                 flag = true;
                 t++;
             }

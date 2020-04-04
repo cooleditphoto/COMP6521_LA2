@@ -1,24 +1,23 @@
 package Project_LA2;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Phase2 {
+public class MergeFiles {
     /**
      * phase2 start method
      * @param totalMemory
      * @throws IOException
      */
     public void start(long totalMemory) throws IOException{
-        Phase2 phase2 = new Phase2();
-        Phase2_Operation po = new Phase2_Operation();
+        MergeFiles mergeFiles = new MergeFiles();
+        MergeOpr po = new MergeOpr();
         //init file
         po.File_Init();
-        int[] param = phase2.Config(totalMemory);
+        int[] param = mergeFiles.Config(totalMemory);
 
         //sublist number
         int sublists_num = param[0];
@@ -32,7 +31,7 @@ public class Phase2 {
         //init pointer
         BufferedReader[] br_init = po.Buffer_Init(sublists_num,file_address);
 
-        phase2.Duplict_Insert(sublists_num,memory_sublists_size,file_address,br_init);
+        mergeFiles.Duplict_Insert(sublists_num,memory_sublists_size,file_address,br_init);
 
     }
 
@@ -40,7 +39,7 @@ public class Phase2 {
 
 
     public void Duplict_Insert( int sublists_num, int memory_sublists_size, String[] file_address, BufferedReader[] br_pointer) throws IOException{
-        Phase2_Operation po = new Phase2_Operation();
+        MergeOpr po = new MergeOpr();
         //init n blocks in memory
         List <List<String>> memory_sublists_list = po.init(sublists_num);
         //buffer list in memory
@@ -98,7 +97,7 @@ public class Phase2 {
      */
     public int[] Config(long totalMemory) throws IOException{
 
-        Phase2_Operation po = new Phase2_Operation();
+        MergeOpr po = new MergeOpr();
         int sublists_size = po.Sublist_size();
 
         int[] param = new int[3];
@@ -110,7 +109,7 @@ public class Phase2 {
         //sublists_size
         param[1] = 10000;
         //memory_sublists_size(sublist, buffereader, buffer_list and others in memeory)
-        param[2] = (int) (totalMemory/Configuration.TUPLE_SIZE / (param[0]*5));
+        param[2] = (int) (totalMemory/Configuration.tupleSize / (param[0]*5));
         return param;
     }
 

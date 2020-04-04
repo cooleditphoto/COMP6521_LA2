@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Phase2_Operation {
+public class MergeOpr {
     /**
      * get file address
      * @param sublists_num
@@ -16,7 +16,7 @@ public class Phase2_Operation {
     public  String[] File_Address(int sublists_num) throws IOException{
         String[] file_address = new String[sublists_num];
         for (int i=1;i<=sublists_num;i++){
-            file_address[i-1] = Configuration.TEMP_CONTENT + (i-1) + ".txt";
+            file_address[i-1] = Configuration.tempContent + (i-1) + ".txt";
         }
         return  file_address;
     }
@@ -104,13 +104,13 @@ public class Phase2_Operation {
         ArrayList<String> all_line = new ArrayList<>();
         if  (num < 100){
             for (int i=0; i<index.size(); i++){
-                String line = fr.findRecordFromFile(Configuration.TEST_PATH,num*10000+index.get(i)+1);
+                String line = fr.findRecordFromFile(Configuration.path1,num*10000+index.get(i)+1);
                 all_line.add(line);
             }
         }
         else{
             for (int i=0; i<index.size(); i++){
-                String line = fr.findRecordFromFile(Configuration.TEST_PATH2,(num-100)*10000+index.get(i)+1);
+                String line = fr.findRecordFromFile(Configuration.path2,(num-100)*10000+index.get(i)+1);
                 all_line.add(line);
             }
         }
@@ -167,7 +167,7 @@ public class Phase2_Operation {
      * @throws IOException
      */
     public List <String> Buffer_Process(List <String> buffer_list,String max_line,int memory_sublists_size) throws IOException{
-        Phase2_Operation po = new Phase2_Operation();
+        MergeOpr po = new MergeOpr();
         int buffer_size1 = buffer_list.size();
         int buffer_size2;
 
@@ -203,7 +203,7 @@ public class Phase2_Operation {
      * @throws IOException
      */
     public void OutputFile(List<String> subList) throws IOException {
-        FileWriter fw  = new FileWriter(Configuration.PHASE2_OUTPUT,true);
+        FileWriter fw  = new FileWriter(Configuration.idOutput,true);
         PrintWriter pw = new PrintWriter(fw);
         //output every element in the sublist
         for(String str:subList){
@@ -218,7 +218,7 @@ public class Phase2_Operation {
      * @throws IOException
      */
     public void File_Init() throws IOException {
-        FileWriter fw  = new FileWriter(Configuration.PHASE2_OUTPUT);
+        FileWriter fw  = new FileWriter(Configuration.idOutput);
         PrintWriter pw = new PrintWriter(fw);
     }
 
@@ -228,7 +228,7 @@ public class Phase2_Operation {
      * @throws IOException
      */
     public int Sublist_size() throws IOException {
-        String file_address = Configuration.TEMP_CONTENT +"1.txt";
+        String file_address = Configuration.tempContent +"1.txt";
         FileReader fr = new FileReader(file_address);
         BufferedReader br = new BufferedReader(fr);
         int lines = 0;
