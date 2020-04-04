@@ -2,14 +2,11 @@ package Test;
 
 import Project_LA2.Configuration;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 public class CompareFileTest {
 
@@ -30,7 +27,13 @@ public class CompareFileTest {
         while(num<824450){
             str1 = br1.readLine();
             str2 = br2.readLine();
-            if(!str1.substring(0,18).equals(str2.substring(0,18))){
+            System.out.print(str1.length());
+            System.out.print(str2.length());
+            /*if(!str1.substring(0,18).equals(str2.substring(0,18))){
+                flag = true;
+                t++;
+            }*/
+            if(!str1.equals(str2)){
                 flag = true;
                 t++;
             }

@@ -15,14 +15,13 @@ public class FindRecord {
         file.close();
 
         String string = new String(bytes).trim();
-        //string = string+"                                                                                                    ";
-        //string.substring(0,100);
-        StringBuffer sb  =new StringBuffer();
+        string = string+"                                                                                                    ";
+        string = string.substring(0,100);
+        //StringBuffer sb  =new StringBuffer();
 
-        for(int i=0;i<100-string.length();i++){
-            sb.append(" ");
-        }
-        //System.out.println("record: " + string);
+        //for(int i=0;i<100-string.length();i++){
+        //    sb.append(" ");
+        //}
         //return string+sb.toString();
         return string;
     }
