@@ -7,7 +7,7 @@ import java.io.*;
 public class LineNum {
 
     public static void main(String[] args) throws IOException {
-        String path = Configuration.dptOutput+"1.txt";
+        String path = Configuration.idOutput;
         System.out.println(getLineNum(path));
     }
 
