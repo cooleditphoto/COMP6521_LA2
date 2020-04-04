@@ -8,7 +8,7 @@ public class DeleteFiles {
 
     public static void main(String[] args) {
         String path = Configuration.TEMP_CONTENT;
-        for(int i=100;i<150;i++){
+        for(int i=0;i<150;i++){
             File file = new File(path+i+".txt");
             file.delete();
         }
