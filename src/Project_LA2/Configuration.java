@@ -3,17 +3,15 @@ package Project_LA2;
 public class Configuration {
 
     //configure the size of tuple and block
-    public final static int TUPLE_SIZE = 100;
-    public final static int BLOCK_SIZE = 4000;
+    public final static int tupleSize = 100;
+    public final static int blockSize = 4000;
 
     //configure the input and output file path
-    public static String TEST_PATH = "src/Data_Files/sample1.txt";
-    public static String OUTPUT_PATH = "src/Data_Files/output.txt";
-    public static String TEST_PATH2 = "src/Data_Files/sample2.txt";
-//    public static String TEXT2_PATH = "src/Data_Files/sample2.txt";
-//    public static String TEMP_PATH = "src/Data_Files/Temp/phase2_original";
-    public static String TEMP_CONTENT = "src/Data_Files/Temp/";
-//    public static String OUTPUT_PATH = "src/Data_Files/phase2_original.txt";
-    public static String PHASE2_OUTPUT = "src/Data_Files/phase2_output.txt";
+    public static String path1 = "src/Data_Files/sample1.txt";
+    public static String path2 = "src/Data_Files/sample2.txt";
+    public static String tempContent = "src/Data_Files/Temp/";
+    public static String idOutput = "src/Data_Files/IdBitMapOutput.txt";
+    public static String sexOutput = "src/Data_Files/sexBitMapOutput";
+    public static String dptOutput = "src/Data_Files/dptBitMapOutput";
     
 }

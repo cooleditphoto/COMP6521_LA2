@@ -1,11 +1,13 @@
 package Util;
 
+import Project_LA2.Configuration;
+
 import java.io.*;
 
 public class LineNum {
 
     public static void main(String[] args) throws IOException {
-        String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/phase2_output.txt";
+        String path = Configuration.idOutput;
         System.out.println(getLineNum(path));
     }
 
@@ -20,13 +22,6 @@ public class LineNum {
         String str2 = "";
         while((str=bufferedReader.readLine())!=null){
             num++;
-            if(str.compareTo(str2)<0&&i<9) {
-                System.out.println("str:"+str);
-                System.out.println("str2:"+str2);
-                System.out.println("num:"+num);
-                i++;
-            }
-            str2=str;
         }
         //printWriter.close();
         //fileWriter.close();
