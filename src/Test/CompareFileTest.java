@@ -22,24 +22,16 @@ public class CompareFileTest {
         BufferedReader br2 = new BufferedReader(fr2);
         String str1;
         String str2;
-        int t=0;
         int num = 0;
         while(num<824450){
             str1 = br1.readLine();
             str2 = br2.readLine();
-            System.out.print(str1.length());
-            System.out.print(str2.length());
-            /*if(!str1.substring(0,18).equals(str2.substring(0,18))){
+            if((!str1.substring(0,18).equals(str2.substring(0,18)))||(str1.length())!=str2.length()){
                 flag = true;
-                t++;
-            }*/
-            if(!str1.equals(str2)){
-                flag = true;
-                t++;
             }
             num++;
         }
-        System.out.println(t);
+        System.out.println(num);
         br2.close();
         fr2.close();
         br1.close();

@@ -1,6 +1,7 @@
-package Util;
+package Project_LA2;
 
 import Project_LA2.FindRecord;
+import Project_LA2.MergeFiles;
 
 import java.io.*;
 import java.util.Date;
@@ -11,13 +12,13 @@ public class BitMapCheck {
     public static void main(String[] args) throws IOException {
         long time1 = new Date().getTime();
         FindRecord findRecord = new FindRecord();
-        String path2 = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt";
-        String path3 = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample2.txt";
+        String path2 = Configuration.path1;
+        String path3 = Configuration.path2;
         for(int p=0;p<100;p++){
-            String path  = "/Users/wujiaqi/comp6521/"+p+".txt";
+            String path  = Configuration.tempContent+p+".txt";
             FileReader fileReader = new FileReader(path);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            FileWriter fileWriter = new FileWriter("/Users/wujiaqi/comp6521/output/o"+p+".txt");
+            FileWriter fileWriter = new FileWriter(Configuration.tempContent2+p+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             String str;
 
@@ -46,10 +47,10 @@ public class BitMapCheck {
             fileReader.close();
         }
         for(int p=100;p<150;p++){
-            String path  = "/Users/wujiaqi/comp6521/"+p+".txt";
+            String path  = Configuration.tempContent+p+".txt";
             FileReader fileReader = new FileReader(path);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            FileWriter fileWriter = new FileWriter("/Users/wujiaqi/comp6521/output/o"+p+".txt");
+            FileWriter fileWriter = new FileWriter(Configuration.tempContent2+p+".txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             String str;
 
@@ -77,6 +78,10 @@ public class BitMapCheck {
             bufferedReader.close();
             fileReader.close();
         }
+
+        MergeFiles mergeFiles = new MergeFiles();
+        Runtime rt = Runtime.getRuntime();
+        mergeFiles.start(rt.totalMemory());
 
         long time2 = new Date().getTime();
         System.out.println(time2-time1);

@@ -23,6 +23,15 @@ public class IDBitMapGenerator {
 
     }
 
+    /**
+     * generate the bitmap file for eight-digit id number
+     * @param inputPath
+     * @param outputPath
+     * @param lineNum
+     * @param startNum
+     * @param endNum
+     * @throws IOException
+     */
     public static void generate(String inputPath,String outputPath,int lineNum,int startNum,int endNum) throws IOException {
 
         FileReader fileReader = new FileReader(inputPath);
@@ -37,6 +46,7 @@ public class IDBitMapGenerator {
             while(( (num<lineNum)&&(str=bufferedReader.readLine())!=null)){
                 num++;
                 Integer id = Integer.parseInt(str.substring(0,8));
+                //store the id information in a map
                 //the key is id, the value is line num
                 if(!map.containsKey(id)){
                     HashSet<Integer> set = new HashSet<>();
@@ -48,6 +58,7 @@ public class IDBitMapGenerator {
                     map.put(id,set);
                 }
             }
+            //check 100000000 different number
             for(int i=0;i<100000000;i++){
                 if(map.containsKey(i)){
                     StringBuffer sb = new StringBuffer();

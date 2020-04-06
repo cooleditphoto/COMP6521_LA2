@@ -13,6 +13,12 @@ public class SexBitMapGenerator {
         generate(inputPath2,(outputPath+"2.txt"));
     }
 
+    /**
+     * generate bitmap file for sex
+     * @param inputPath
+     * @param outputPath
+     * @throws IOException
+     */
     public static void generate(String inputPath,String outputPath) throws IOException {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

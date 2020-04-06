@@ -14,6 +14,12 @@ public class DptBitMapGenerator {
         generate(inputPath2,(outputPath+"2.txt"));
     }
 
+    /**
+     * generate the bitmap file for the department number
+     * @param inputPath
+     * @param outputPath
+     * @throws IOException
+     */
     public static void generate(String inputPath,String outputPath) throws IOException {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

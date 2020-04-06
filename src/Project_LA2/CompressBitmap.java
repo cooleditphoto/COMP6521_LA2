@@ -4,6 +4,12 @@ import java.io.*;
 
 public class CompressBitmap {
 
+    /**
+     * compress the bitmap file
+     * @param inputPath
+     * @param outputPath
+     * @throws IOException
+     */
     public static void compressBitmap(String inputPath, String outputPath) throws IOException {
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

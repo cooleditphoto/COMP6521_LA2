@@ -9,8 +9,9 @@ public class Configuration {
     //configure the input and output file path
     public static String path1 = "src/Data_Files/sample1.txt";
     public static String path2 = "src/Data_Files/sample2.txt";
-    public static String tempContent = "src/Data_Files/Temp/";
-    public static String idOutput = "src/Data_Files/IdBitMapOutput.txt";
+    public static String tempContent = "/Users/wujiaqi/comp6521/";
+    public static String tempContent2 = tempContent+"o";
+    public static String idOutput = "/Users/wujiaqi/comp6521/output.txt";
     public static String sexOutput = "src/Data_Files/sexBitMapOutput";
     public static String dptOutput = "src/Data_Files/dptBitMapOutput";
     
