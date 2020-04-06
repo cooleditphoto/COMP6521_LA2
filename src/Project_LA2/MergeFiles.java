@@ -21,10 +21,10 @@ public class MergeFiles {
      */
     public static void start(long totalMemory) throws IOException{
         MergeFiles mergeFiles = new MergeFiles();
-        Phase2Operation po = new Phase2Operation();
+        MergeOperation mergeOperation = new MergeOperation();
 
         //init file
-        po.fileInit();
+        mergeOperation.fileInit();
 
         //sublist number
         int subListsNum = 150;
@@ -34,11 +34,11 @@ public class MergeFiles {
         int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 750);
 
         //init file address
-        String[] fileAddress = po.fileAddress(subListsNum);
+        String[] fileAddress = mergeOperation.fileAddress(subListsNum);
         //init pointer
-        BufferedReader[] brInit = po.bufferInit(subListsNum,fileAddress);
+        BufferedReader[] brInit = mergeOperation.bufferInit(subListsNum,fileAddress);
 
-        mergeFiles.duplictInsert(subListsNum,memorySubListsSize,brInit);
+        mergeFiles.duplicateInsert(subListsNum,memorySubListsSize,brInit);
 
     }
 
@@ -50,10 +50,10 @@ public class MergeFiles {
      * @param brPointer
      * @throws IOException
      */
-    public void duplictInsert( int subListsNum, int memorySubListsSize, BufferedReader[] brPointer) throws IOException{
-        Phase2Operation po = new Phase2Operation();
+    public void duplicateInsert( int subListsNum, int memorySubListsSize, BufferedReader[] brPointer) throws IOException{
+        MergeOperation mergeOperation = new MergeOperation();
         //init n blocks in memory
-        List <List<String>> memorySubListsList = po.init(subListsNum);
+        List <List<String>> memorySubListsList = mergeOperation.init(subListsNum);
         //buffer list in memory
         List <String> bufferList = new ArrayList<>();
         List <String> firstLine = new ArrayList<>();
@@ -62,7 +62,7 @@ public class MergeFiles {
             //add data to memory
             for (int index=0;index<subListsNum;index++){
                 if (memorySubListsList.get(index).size() == 0){
-                    Map<List<String>,BufferedReader[]> map = po.fetchSublist(index,brPointer,memorySubListsSize);
+                    Map<List<String>,BufferedReader[]> map = mergeOperation.fetchSublist(index,brPointer,memorySubListsSize);
                     Map.Entry<List<String>,BufferedReader[]> result = map.entrySet().iterator().next();
                     memorySubListsList.set(index,result.getKey());
                     brPointer = result.getValue();
@@ -77,7 +77,7 @@ public class MergeFiles {
 
             //get the index of biggest value
             int maxIndex;
-            maxIndex = po.maxIndex(firstLine);
+            maxIndex = mergeOperation.maxIndex(firstLine);
             if (maxIndex == -1){
                 break;
             }
@@ -87,14 +87,14 @@ public class MergeFiles {
             maxLine = memorySubListsList.get(maxIndex).get(0);
 
             //process bufferList
-            bufferList = po.bufferProcess(bufferList,maxLine,memorySubListsSize);
+            bufferList = mergeOperation.bufferProcess(bufferList,maxLine,memorySubListsSize);
 
             //remove the biggest line in block of memory
             memorySubListsList.get(maxIndex).remove(0);
         }
         //process the last sublist
         if (bufferList != null){
-            po.outputFile(bufferList);
+            mergeOperation.outputFile(bufferList);
         }
     }
 

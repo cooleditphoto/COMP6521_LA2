@@ -8,8 +8,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class BitMapCheck {
+public class MergePhase {
     public static void main(String[] args) throws IOException {
+        start();
+    }
+
+    public static void start() throws IOException {
         long time1 = new Date().getTime();
         FindRecord findRecord = new FindRecord();
         String path2 = Configuration.path1;

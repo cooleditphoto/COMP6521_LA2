@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Phase2Operation {
+public class MergeOperation {
 
     /**
      * get file address
@@ -116,7 +116,7 @@ public class Phase2Operation {
      * @throws IOException
      */
     public List <String> bufferProcess(List <String> bufferList,String maxLine,int memorySubListsSize) throws IOException{
-        Phase2Operation po = new Phase2Operation();
+        MergeOperation mergeOperation = new MergeOperation();
         int bufferSize1 = bufferList.size();
         int bufferSize2;
 
@@ -138,7 +138,7 @@ public class Phase2Operation {
         if (bufferSize2 == memorySubListsSize + 1){
             String lastLine = bufferList.get(bufferSize2-1);
             bufferList.remove(bufferSize2-1);
-            po.outputFile(bufferList);
+            mergeOperation.outputFile(bufferList);
 
             bufferList = new ArrayList<String>();
             bufferList.add(lastLine);
