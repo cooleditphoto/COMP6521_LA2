@@ -6,6 +6,11 @@ import java.util.HashSet;
 
 public class DptBitMapGenerator {
 
+    /**
+     * main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         String inputPath1 = Configuration.path1;
         String inputPath2 = Configuration.path2;

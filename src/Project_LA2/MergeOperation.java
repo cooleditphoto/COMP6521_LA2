@@ -1,10 +1,10 @@
 package Project_LA2;
 
+import javafx.util.Pair;
+
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MergeOperation {
 
@@ -56,16 +56,14 @@ public class MergeOperation {
 
     /**
      * read new sublist from disk to memory and compute the position of br pointer
-     * @param index
-     * @param brPointer
+     * @param br
      * @param fetchNum
      * @return
      * @throws IOException
      */
-    public Map<List<String>,BufferedReader[]> fetchSublist(int index, BufferedReader[] brPointer, int fetchNum) throws IOException {
-        Map<List<String>,BufferedReader[]> map= new HashMap<>();
+    public Pair<BufferedReader,List<String>> fetchSublist(BufferedReader br, int fetchNum) throws IOException {
+
         List<String> fetchSubList = new ArrayList<>();
-        BufferedReader br = brPointer[index];
         String txt = "";
         for (int lines = 0; lines< fetchNum; lines++){
             txt = br.readLine();
@@ -77,11 +75,10 @@ public class MergeOperation {
             else{
                 fetchSubList.add(txt);
             }
-
         }
-        brPointer[index] = br;
-        map.put(fetchSubList,brPointer);
-        return  map;
+
+        Pair<BufferedReader,List<String>> pair = new Pair<>(br,fetchSubList);
+        return  pair;
     }
 
     /**

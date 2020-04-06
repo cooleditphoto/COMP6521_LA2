@@ -1,10 +1,17 @@
 package Project_LA2;
 
+import javafx.util.Pair;
+
 import java.io.*;
 import java.util.*;
 
 public class MergeFiles {
 
+    /**
+     * main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         long time1 = new Date().getTime();
         Runtime rt = Runtime.getRuntime();
@@ -62,10 +69,11 @@ public class MergeFiles {
             //add data to memory
             for (int index=0;index<subListsNum;index++){
                 if (memorySubListsList.get(index).size() == 0){
-                    Map<List<String>,BufferedReader[]> map = mergeOperation.fetchSublist(index,brPointer,memorySubListsSize);
-                    Map.Entry<List<String>,BufferedReader[]> result = map.entrySet().iterator().next();
-                    memorySubListsList.set(index,result.getKey());
-                    brPointer = result.getValue();
+                    BufferedReader br = brPointer[index];
+                    Pair<BufferedReader,List<String>> pair  =  mergeOperation.fetchSublist(br,memorySubListsSize);
+                    BufferedReader br2 =pair.getKey();
+                    brPointer[index] = br2;
+                    memorySubListsList.set(index,pair.getValue());
                 }
             }
 

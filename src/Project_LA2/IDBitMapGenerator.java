@@ -6,6 +6,11 @@ import java.util.HashSet;
 
 public class IDBitMapGenerator {
 
+    /**
+     * main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         int lineNum = 10000;
         String inputPath1 = Configuration.path1;
@@ -13,6 +18,10 @@ public class IDBitMapGenerator {
         generate(inputPath1,outputPath,lineNum,0,100);
     }
 
+    /**
+     * bitmap generate method
+     * @throws IOException
+     */
     public  void start() throws IOException {
         int lineNum = 10000;
         String inputPath1 = Configuration.path1;
