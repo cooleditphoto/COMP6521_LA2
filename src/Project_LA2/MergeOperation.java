@@ -24,14 +24,13 @@ public class MergeOperation {
 
     /**
      * init bufferReader
-     * @param subListsNum
      * @param fileAddress
      * @return
      * @throws IOException
      */
-    public BufferedReader[] bufferInit(int subListsNum,String[] fileAddress) throws IOException{
-        BufferedReader[] brInit = new BufferedReader[subListsNum];
-        for (int i=0;i<subListsNum;i++){
+    public BufferedReader[] bufferInit(String[] fileAddress) throws IOException{
+        BufferedReader[] brInit = new BufferedReader[fileAddress.length];
+        for (int i=0;i<fileAddress.length;i++){
             FileReader fr = new FileReader(fileAddress[i]);
             BufferedReader br = new BufferedReader(fr);
             brInit[i] = br;
@@ -45,7 +44,7 @@ public class MergeOperation {
      * @return
      * @throws IOException
      */
-    public List <List<String>> init(int subListsNum) throws IOException{
+    public List <List<String>> init(int subListsNum){
         List <List<String>> memorySubListsList = new ArrayList<>();
         List<String> initArr = new ArrayList<>();
         for (int i=0; i<subListsNum; i++){

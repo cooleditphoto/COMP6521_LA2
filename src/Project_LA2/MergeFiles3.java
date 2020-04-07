@@ -5,7 +5,7 @@ import javafx.util.Pair;
 import java.io.*;
 import java.util.*;
 
-public class MergeFiles {
+public class MergeFiles3 {
 
     /**
      * main method
@@ -18,7 +18,7 @@ public class MergeFiles {
         long totalMemory = rt.totalMemory();
         start(totalMemory);
         long time2 = new Date().getTime();
-        System.out.println(time2-time1);
+        System.out.println("merge phase time: "+(time2-time1));
     }
 
     /**
@@ -27,7 +27,7 @@ public class MergeFiles {
      * @throws IOException
      */
     public static void start(long totalMemory) throws IOException{
-        MergeFiles mergeFiles = new MergeFiles();
+        MergeFiles3 mergeFiles = new MergeFiles3();
         MergeOperation mergeOperation = new MergeOperation();
 
         //init file
@@ -35,15 +35,13 @@ public class MergeFiles {
 
         //sublist number
         int subListsNum = 150;
-        //sublist size
-        int subListsSize = 100000;
         // one block size
         int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 750);
 
         //init file address
         String[] fileAddress = mergeOperation.fileAddress(subListsNum);
         //init pointer
-        BufferedReader[] brInit = mergeOperation.bufferInit(subListsNum,fileAddress);
+        BufferedReader[] brInit = mergeOperation.bufferInit(fileAddress);
 
         mergeFiles.duplicateInsert(subListsNum,memorySubListsSize,brInit);
 
@@ -63,7 +61,6 @@ public class MergeFiles {
         List <List<String>> memorySubListsList = mergeOperation.init(subListsNum);
         //buffer list in memory
         List <String> bufferList = new ArrayList<>();
-        List <String> firstLine = new ArrayList<>();
 
         while (true){
             //add data to memory
@@ -78,7 +75,7 @@ public class MergeFiles {
             }
 
             // create the first line to compare
-            firstLine = new ArrayList<>();
+            List <String> firstLine = new ArrayList<>();
             for (int i=0;i<subListsNum;i++){
                 firstLine.add(memorySubListsList.get(i).get(0));
             }

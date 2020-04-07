@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class MergePhase {
+public class MergePhase2 {
     /**
      * main method
      * @param args
@@ -23,17 +23,17 @@ public class MergePhase {
     public static void start() throws IOException {
         long time1 = new Date().getTime();
 
-        MergeFiles mergeFiles = new MergeFiles();
-        Runtime rt = Runtime.getRuntime();
+        //MergeFiles mergeFiles = new MergeFiles();
+        //Runtime rt = Runtime.getRuntime();
 
         String path1 = Configuration.path1;
         String path2 = Configuration.path2;
         generate(path1,0,100);
         generate(path2,100,150);
 
-        mergeFiles.start(rt.totalMemory());
+        //mergeFiles.start(rt.totalMemory());
         long time2 = new Date().getTime();
-        System.out.println("phase2 time: "+(time2-time1));
+        System.out.println("sort phase time: "+(time2-time1));
     }
 
     /**
