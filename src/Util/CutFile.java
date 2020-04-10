@@ -12,15 +12,33 @@ public class CutFile {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        FileReader fr = new FileReader("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample2.txt");
+        cutFile("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt",
+                "/Users/wujiaqi/comp6521/smallfile/sameple3.txt",
+                20000,20000);
+    }
+
+    /**
+     * cut file
+     * @param inputPath
+     * @param outputPath
+     * @param skipNum
+     * @param cutNum
+     */
+    public static void cutFile(String inputPath,String outputPath,int skipNum,int cutNum) throws IOException {
+        FileReader fr = new FileReader(inputPath);
         BufferedReader br = new BufferedReader(fr);
-        FileWriter fw = new FileWriter("/Users/wujiaqi/comp6521/smallfile/sameple4.txt");
+        FileWriter fw = new FileWriter(outputPath);
         PrintWriter pw = new PrintWriter(fw);
+
+        int num1=0;
+        while(br.readLine()!=null&&num1<skipNum){
+            num1++;
+        }
         String str;
-        int num=0;
-        while((str=br.readLine())!=null&&num<20000){
+        int num2 = 0;
+        while((str=br.readLine())!=null&&num2<cutNum){
             pw.println(str);
-            num++;
+            num2++;
         }
         pw.close();
         fw.close();

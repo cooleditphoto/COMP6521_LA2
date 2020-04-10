@@ -46,7 +46,7 @@ public class Main {
 
         long totalTime = time9+time6+time3;
         //result
-        System.out.print("time for the whole process: "+totalTime);
+        System.out.println("time for the whole process: "+totalTime);
         int totalIO = IDBitMapGenerator.io+ MergePhase.io+MergeOperation.io;
         System.out.println("io times for the whose process: "+totalIO);
 
