@@ -5,7 +5,7 @@ public class Configuration {
     //configure the size of tuple and block
     public final static int tupleSize = 100;
     public final static int blockSize = 4000;
-    public final static int fileTimes = 2;
+    public final static int fileTimes = 5;
     public static int ioNum = 0;
 
     //configure the input and output file path
