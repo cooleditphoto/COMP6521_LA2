@@ -147,11 +147,11 @@ public class SmallFile {
 
         Runtime rt = Runtime.getRuntime();
         long totalMemory = rt.totalMemory();
-        int memoryListSize = (int) (totalMemory/Configuration.tupleSize / 50);
+        int memoryListSize = (int) (totalMemory/Configuration.tupleSize /(Configuration.fileTimes*10) );
 
         MergeFiles3 mergeFiles3 = new MergeFiles3();
 
-        mergeFiles3.start(10,memoryListSize/2);
+        mergeFiles3.start(Configuration.fileTimes*2,memoryListSize/2);
 
     }
 }
