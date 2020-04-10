@@ -23,15 +23,13 @@ public class MergePhase2 {
     public static void start() throws IOException {
         long time1 = new Date().getTime();
 
-        //MergeFiles mergeFiles = new MergeFiles();
-        //Runtime rt = Runtime.getRuntime();
 
         String path1 = Configuration.path1;
         String path2 = Configuration.path2;
-        generate(path1,0,100);
-        generate(path2,100,150);
+        generate(path1,0,Configuration.fileTimes);
+        generate(path2,Configuration.fileTimes,2*Configuration.fileTimes);
 
-        //mergeFiles.start(rt.totalMemory());
+
         long time2 = new Date().getTime();
         System.out.println("sort phase time: "+(time2-time1));
     }

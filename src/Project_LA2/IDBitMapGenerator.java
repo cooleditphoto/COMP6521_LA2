@@ -6,8 +6,6 @@ import java.util.HashSet;
 
 public class IDBitMapGenerator {
 
-    static int q= 0 ;
-
     /**
      * main method
      * @param args
@@ -17,7 +15,7 @@ public class IDBitMapGenerator {
         int lineNum = 10000;
         String inputPath1 = Configuration.path1;
         String outputPath = Configuration.tempContent;
-        generate(inputPath1,outputPath,lineNum,0,100);
+        generate(inputPath1,outputPath,lineNum,0,2);
     }
 
     /**
@@ -31,8 +29,8 @@ public class IDBitMapGenerator {
         String outputPath = Configuration.tempContent;
 
 
-        generate(inputPath1,outputPath,lineNum,0,100);
-        generate(inputPath2,outputPath,lineNum,100,150);
+        generate(inputPath1,outputPath,lineNum,0,Configuration.fileTimes);
+        generate(inputPath2,outputPath,lineNum,Configuration.fileTimes,2*Configuration.fileTimes);
 
 
         /*

@@ -16,27 +16,25 @@ public class MergeFiles3 {
         long time1 = new Date().getTime();
         Runtime rt = Runtime.getRuntime();
         long totalMemory = rt.totalMemory();
-        start(totalMemory);
+        //sublist number
+        int subListsNum = 2* Configuration.fileTimes;
+        // one block size
+        int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 10*(Configuration.fileTimes));
+        start(subListsNum,memorySubListsSize);
         long time2 = new Date().getTime();
         System.out.println("merge phase time: "+(time2-time1));
     }
 
     /**
      * phase2 start method
-     * @param totalMemory
      * @throws IOException
      */
-    public static void start(long totalMemory) throws IOException{
+    public static void start(int subListsNum,int memorySubListsSize) throws IOException{
         MergeFiles3 mergeFiles = new MergeFiles3();
         MergeOperation mergeOperation = new MergeOperation();
 
         //init file
         mergeOperation.fileInit();
-
-        //sublist number
-        int subListsNum = 150;
-        // one block size
-        int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 750);
 
         //init file address
         String[] fileAddress = mergeOperation.fileAddress(subListsNum);

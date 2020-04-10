@@ -23,7 +23,7 @@ public class Main1 {
         long time = time2-time1;
         System.out.println("bitmap generate time:"+time);
 
-        /*
+
         //bitmap file merge phase
         Date date3 = new Date();
         MergePhase2 mergePhase = new MergePhase2();
@@ -33,10 +33,26 @@ public class Main1 {
         long time3;
         time3 = date4.getTime()-date3.getTime();
         System.out.println("bitmap files merge time:"+ time3);
-        long totalTime = time3+time;
+
+
+
+        //phase3
+
+        long time5 = new Date().getTime();
+        MergeFiles3 mergeFiles3 = new MergeFiles3();
+        //sublist number
+        int subListsNum = 2* Configuration.fileTimes;
+        // one block size
+        int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 10*(Configuration.fileTimes));
+        mergeFiles3.start(subListsNum,memorySubListsSize);
+        long time6 = new Date().getTime();
+        long time7 = time6-time5;
+        System.out.println("merge phase time: "+time7);
+
+        long totalTime = time7+time3+time;
         //result
         System.out.print("time for the whole process:"+totalTime);
-         */
+
 
         //delete all files
         //deleteFiles.deleteFiles();

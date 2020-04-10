@@ -14,7 +14,7 @@ public class CompareFileTest {
     public void test01() throws IOException {
 
         String path1 = Configuration.idOutput;
-        String path2 = "/Users/wujiaqi/Desktop/phase2_output.txt";
+        String path2 = "/Users/wujiaqi/Desktop/phase2_output(2w).txt";
         boolean flag = false;
         FileReader fr1 = new FileReader(path1);
         BufferedReader br1 = new BufferedReader(fr1);
@@ -23,7 +23,7 @@ public class CompareFileTest {
         String str1;
         String str2;
         int num = 0;
-        while(num<824450){
+        while(num<39180){
             str1 = br1.readLine();
             str2 = br2.readLine();
             if((!str1.substring(0,18).equals(str2.substring(0,18)))||(str1.length())!=str2.length()){
