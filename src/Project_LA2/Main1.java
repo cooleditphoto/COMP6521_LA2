@@ -21,7 +21,8 @@ public class Main1 {
         idBitMapGenerator.start();
         long time2 = new Date().getTime();
         long time = time2-time1;
-        System.out.println("bitmap generate time:"+time);
+        System.out.println("phase1 time: "+time);
+        System.out.println("phase1 io: "+IDBitMapGenerator.io);
 
 
         //bitmap file merge phase
@@ -32,7 +33,8 @@ public class Main1 {
         Date date4 = new Date();
         long time3;
         time3 = date4.getTime()-date3.getTime();
-        System.out.println("bitmap files merge time:"+ time3);
+        System.out.println("phase2 time:"+ time3);
+        System.out.println("phase2 io: "+MergePhase2.io);
 
 
 
@@ -47,11 +49,12 @@ public class Main1 {
         mergeFiles3.start(subListsNum,memorySubListsSize);
         long time6 = new Date().getTime();
         long time7 = time6-time5;
-        System.out.println("merge phase time: "+time7);
+        System.out.println("phase3 time: "+time7);
+        System.out.println("phase3 io: "+MergeOperation.io);
 
-        long totalTime = time7+time3+time;
+        //long totalTime = time7+time3+time;
         //result
-        System.out.print("time for the whole process:"+totalTime);
+        //System.out.print("time for the whole process:"+totalTime);
 
 
         //delete all files

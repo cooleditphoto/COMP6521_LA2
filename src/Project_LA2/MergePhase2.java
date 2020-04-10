@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class MergePhase2 {
+
+    static int io = 0;
     /**
      * main method
      * @param args
@@ -53,6 +55,7 @@ public class MergePhase2 {
             String str;
 
             while((str=bufferedReader.readLine())!=null){
+                io++;
                 int num = 0;
                 HashSet<String> set = new HashSet<>();
                 for(int i=0;i<str.length();i++){
@@ -70,6 +73,7 @@ public class MergePhase2 {
                     res=  (String)it.next();
                 }
                 printWriter.println(res);
+                io++;
             }
             printWriter.close();
             fileWriter.close();

@@ -8,6 +8,8 @@ import java.util.List;
 
 public class MergeOperation {
 
+    static int io = 0;
+
     /**
      * get file address
      * @param subListsNum
@@ -66,6 +68,7 @@ public class MergeOperation {
         String txt = "";
         for (int lines = 0; lines< fetchNum; lines++){
             txt = br.readLine();
+            io++;
             if (txt == null){
                 br.close();
                 fetchSubList.add("99999999");
@@ -153,6 +156,7 @@ public class MergeOperation {
         //output every element in the sublist
         for(String str:subList){
             pw.println(str);
+            io++;
         }
         pw.close();
         fw.close();
