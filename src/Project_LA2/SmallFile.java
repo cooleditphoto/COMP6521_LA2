@@ -10,6 +10,11 @@ import java.util.Iterator;
 
 public class SmallFile {
 
+    /**
+     * main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         start();
         long time1 = new Date().getTime();
@@ -18,6 +23,10 @@ public class SmallFile {
         System.out.println(time2-time1);
     }
 
+    /**
+     * the whole process
+     * @throws IOException
+     */
     public static void start() throws IOException {
         long time1 = new Date().getTime();
         String originalPath1 = "/Users/wujiaqi/comp6521/smallfile/sameple3.txt";
@@ -27,19 +36,25 @@ public class SmallFile {
         String phase2OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output3.txt";
         String phase2OutputPath2 ="/Users/wujiaqi/comp6521/smallfile/output4.txt";
 
-        generate(originalPath1,phase1OutputPath1);
-        generate(originalPath2,phase1OutputPath2);
+        phase1(originalPath1,phase1OutputPath1);
+        phase1(originalPath2,phase1OutputPath2);
         long time2 = new Date().getTime();
         System.out.println(time2-time1);
-        generate2(originalPath1,phase1OutputPath1,phase2OutputPath1);
-        generate2(originalPath2,phase1OutputPath2,phase2OutputPath2);
+        phase2(originalPath1,phase1OutputPath1,phase2OutputPath1);
+        phase2(originalPath2,phase1OutputPath2,phase2OutputPath2);
         long time3 = new Date().getTime();
         System.out.println(time3-time2);
         DeleteFiles deleteFiles = new DeleteFiles();
         deleteFiles.deleteFiles();
     }
 
-    public static void generate(String inputPath,String outputPath) throws IOException {
+    /**
+     * generate bitmap files
+     * @param inputPath
+     * @param outputPath
+     * @throws IOException
+     */
+    public static void phase1(String inputPath,String outputPath) throws IOException {
 
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -81,7 +96,6 @@ public class SmallFile {
                 printWriter.println(sb.toString());
             }
         }
-
         printWriter.close();
         fileWriter.close();
         bufferedReader.close();
@@ -89,8 +103,14 @@ public class SmallFile {
     }
 
 
-
-    public static void generate2(String path,String inputPath,String outputPath) throws IOException {
+    /**
+     * change bitmap files into sorted data files
+     * @param path
+     * @param inputPath
+     * @param outputPath
+     * @throws IOException
+     */
+    public static void phase2(String path,String inputPath,String outputPath) throws IOException {
         FindRecord findRecord = new FindRecord();
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -141,17 +161,19 @@ public class SmallFile {
     }
 
 
+    /**
+     * merge the sorted files
+     * @throws IOException
+     */
     public static void mergeFile() throws IOException {
-
-
 
         Runtime rt = Runtime.getRuntime();
         long totalMemory = rt.totalMemory();
         int memoryListSize = (int) (totalMemory/Configuration.tupleSize /(Configuration.fileTimes*10) );
 
-        MergeFiles3 mergeFiles3 = new MergeFiles3();
+        MergeFiles mergeFiles = new MergeFiles();
 
-        mergeFiles3.start(Configuration.fileTimes*2,memoryListSize/2);
+        mergeFiles.start(Configuration.fileTimes*2,memoryListSize/2);
 
     }
 }

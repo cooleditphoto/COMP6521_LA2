@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class MergePhase2 {
+public class MergePhase {
 
     static int io = 0;
     /**

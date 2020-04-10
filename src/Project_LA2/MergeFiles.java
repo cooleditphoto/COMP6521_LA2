@@ -5,7 +5,7 @@ import javafx.util.Pair;
 import java.io.*;
 import java.util.*;
 
-public class MergeFiles3 {
+public class MergeFiles {
 
     /**
      * main method
@@ -30,7 +30,7 @@ public class MergeFiles3 {
      * @throws IOException
      */
     public static void start(int subListsNum,int memorySubListsSize) throws IOException{
-        MergeFiles3 mergeFiles = new MergeFiles3();
+        MergeFiles mergeFiles = new MergeFiles();
         MergeOperation mergeOperation = new MergeOperation();
 
         //init file
@@ -44,7 +44,6 @@ public class MergeFiles3 {
         mergeFiles.duplicateInsert(subListsNum,memorySubListsSize,brInit);
 
     }
-
 
     /**
      * Remove duplicated data and insert new data
