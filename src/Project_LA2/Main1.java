@@ -7,13 +7,19 @@ import java.util.Date;
 
 public class Main1 {
     public static void main(String[] args) throws IOException {
+        //get memory size
+        Runtime rt = Runtime.getRuntime();
+        long totalMemory = rt.totalMemory();
+        //sublist number
+        int subListsNum = 2* Configuration.fileTimes;
+        // one block size
+        int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 10*(Configuration.fileTimes));
         //MergeFiles mergeFiles = new MergeFiles();
         IDBitMapGenerator idBitMapGenerator = new IDBitMapGenerator();
         DeleteFiles deleteFiles = new DeleteFiles();
 
-        //get memory size
-        Runtime rt = Runtime.getRuntime();
-        long totalMemory = rt.totalMemory();
+
+
         System.out.println ("total memory:"+ totalMemory/1024/1024+"M");
 
         //bitmap generate phase
@@ -41,12 +47,8 @@ public class Main1 {
         //phase3
 
         long time5 = new Date().getTime();
-        MergeFiles3 mergeFiles3 = new MergeFiles3();
-        //sublist number
-        int subListsNum = 2* Configuration.fileTimes;
-        // one block size
-        int memorySubListsSize = (int) (totalMemory/Configuration.tupleSize / 10*(Configuration.fileTimes));
-        mergeFiles3.start(subListsNum,memorySubListsSize);
+        SmallFile smallFile = new SmallFile();
+        smallFile.mergeFile();
         long time6 = new Date().getTime();
         long time7 = time6-time5;
         System.out.println("phase3 time: "+time7);
