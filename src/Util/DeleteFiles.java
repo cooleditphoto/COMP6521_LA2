@@ -14,15 +14,12 @@ public class DeleteFiles {
      * delete all files
      */
     public static void deleteFiles(){
-        /*String path1 = Configuration.tempContent;
-        for(int i=0;i<150;i++){
-            File file = new File(path1+i+".txt");
-            file.delete();
-        }
-        String path2 = Configuration.tempContent2;
-        for(int i=0;i<150;i++){
-            File file = new File(path2+i+".txt");
-            file.delete();
-        }*/
+        String path1 = "/Users/wujiaqi/comp6521/smallfile/output1.txt";
+        File file = new File(path1);
+        file.delete();
+        String path2 = "/Users/wujiaqi/comp6521/smallfile/output2.txt";
+        File file2 = new File(path2);
+        file2.delete();
+
     }
 }

@@ -10,6 +10,8 @@ import java.util.Iterator;
 
 public class SmallFile {
 
+    static int totalIO =0;
+
     /**
      * main method
      * @param args
@@ -17,10 +19,6 @@ public class SmallFile {
      */
     public static void main(String[] args) throws IOException {
         start();
-        long time1 = new Date().getTime();
-        mergeFile();
-        long time2 = new Date().getTime();
-        System.out.println(time2-time1);
     }
 
     /**
@@ -28,7 +26,7 @@ public class SmallFile {
      * @throws IOException
      */
     public static void start() throws IOException {
-        long time1 = new Date().getTime();
+
         String originalPath1 = "/Users/wujiaqi/comp6521/smallfile/sameple3.txt";
         String originalPath2 = "/Users/wujiaqi/comp6521/smallfile/sameple4.txt";
         String phase1OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output1.txt";
@@ -36,16 +34,24 @@ public class SmallFile {
         String phase2OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output3.txt";
         String phase2OutputPath2 ="/Users/wujiaqi/comp6521/smallfile/output4.txt";
 
+        long time1 = new Date().getTime();
         phase1(originalPath1,phase1OutputPath1);
         phase1(originalPath2,phase1OutputPath2);
         long time2 = new Date().getTime();
-        System.out.println(time2-time1);
+        System.out.println("phase1 time:"+(time2-time1));
+        long time3 = new Date().getTime();
         phase2(originalPath1,phase1OutputPath1,phase2OutputPath1);
         phase2(originalPath2,phase1OutputPath2,phase2OutputPath2);
-        long time3 = new Date().getTime();
-        System.out.println(time3-time2);
+        long time4 = new Date().getTime();
+        System.out.println("phase2 time:"+(time4-time3));
+        long time5 = new Date().getTime();
+        phase3();
+        long time6 = new Date().getTime();
+        System.out.println("phase3 time:"+(time6-time5));
         DeleteFiles deleteFiles = new DeleteFiles();
         deleteFiles.deleteFiles();
+        System.out.println("total io: "+(totalIO+MergeOperation.io));
+        System.out.println("total time:" +(time6-time5+time4-time3+time2-time1));
     }
 
     /**
@@ -55,6 +61,8 @@ public class SmallFile {
      * @throws IOException
      */
     public static void phase1(String inputPath,String outputPath) throws IOException {
+
+        int io=0;
 
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -67,6 +75,8 @@ public class SmallFile {
 
         int num=0;
         while((((str=bufferedReader.readLine())!=null))){
+            io++;
+            totalIO++;
             num++;
             int id = Integer.parseInt(str.substring(0,8));
             //store the id information in a map
@@ -94,12 +104,15 @@ public class SmallFile {
                 }
                 //print a single line
                 printWriter.println(sb.toString());
+                io++;
+                totalIO++;
             }
         }
         printWriter.close();
         fileWriter.close();
         bufferedReader.close();
         fileReader.close();
+        //System.out.println("phase1 io: "+io);
     }
 
 
@@ -111,6 +124,7 @@ public class SmallFile {
      * @throws IOException
      */
     public static void phase2(String path,String inputPath,String outputPath) throws IOException {
+        int io=0;
         FindRecord findRecord = new FindRecord();
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -119,6 +133,8 @@ public class SmallFile {
         String str;
 
         while((str=bufferedReader.readLine())!=null){
+            io++;
+            totalIO++;
             int num = 0;
             HashSet<String> set = new HashSet<>();
             for(int i=0;i<str.length();i++){
@@ -136,11 +152,27 @@ public class SmallFile {
                 res=  (String)it.next();
             }
             printWriter.println(res);
+            io++;
+            totalIO++;
         }
         printWriter.close();
         fileWriter.close();
         bufferedReader.close();
         fileReader.close();
+        //System.out.println("phase2 io: "+io);
+    }
+
+    public static void phase3() throws IOException {
+
+        Runtime rt = Runtime.getRuntime();
+        long totalMemory = rt.totalMemory();
+        int memoryListSize = (int) (totalMemory/Configuration.tupleSize /10);
+
+        MergeFiles mergeFiles = new MergeFiles();
+
+        mergeFiles.start(2,memoryListSize);
+        //System.out.println("phase3 io: "+MergeOperation.io);
+
     }
 
     /**

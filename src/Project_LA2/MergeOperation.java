@@ -20,6 +20,7 @@ public class MergeOperation {
         String[] fileAddress = new String[subListsNum];
         for (int i=1;i<=subListsNum;i++){
             fileAddress[i-1] = Configuration.tempContent2 + (i-1) + ".txt";
+            //fileAddress[i-1] = "/Users/wujiaqi/comp6521/smallfile/output" + (i+2) + ".txt";
         }
         return  fileAddress;
     }
