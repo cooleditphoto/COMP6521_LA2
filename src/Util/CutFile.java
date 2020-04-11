@@ -12,9 +12,9 @@ public class CutFile {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        cutFile("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt",
-                "/Users/wujiaqi/comp6521/smallfile/sameple3.txt",
-                20000,20000);
+        cutFile("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample2.txt",
+                "/Users/wujiaqi/comp6521/smallfile/sameple4.txt",
+                0,20000);
     }
 
     /**
@@ -31,12 +31,12 @@ public class CutFile {
         PrintWriter pw = new PrintWriter(fw);
 
         int num1=0;
-        while(br.readLine()!=null&&num1<skipNum){
+        while(num1<skipNum&&br.readLine()!=null){
             num1++;
         }
         String str;
         int num2 = 0;
-        while((str=br.readLine())!=null&&num2<cutNum){
+        while(num2<cutNum&&(str=br.readLine())!=null){
             pw.println(str);
             num2++;
         }
