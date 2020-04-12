@@ -27,8 +27,8 @@ public class SmallFile {
      */
     public static void start() throws IOException {
 
-        String originalPath1 = "/Users/wujiaqi/comp6521/smallfile/sameple3.txt";
-        String originalPath2 = "/Users/wujiaqi/comp6521/smallfile/sameple4.txt";
+        String originalPath1 = Configuration.path1;
+        String originalPath2 = Configuration.path2;
         String phase1OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output1.txt";
         String phase1OutputPath2 ="/Users/wujiaqi/comp6521/smallfile/output2.txt";
         String phase2OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output3.txt";
@@ -49,7 +49,7 @@ public class SmallFile {
         long time6 = new Date().getTime();
         System.out.println("phase3 time:"+(time6-time5));
         DeleteFiles deleteFiles = new DeleteFiles();
-        deleteFiles.deleteFiles();
+        //deleteFiles.deleteFiles();
         System.out.println("total io: "+(totalIO+MergeOperation.io));
         System.out.println("total time:" +(time6-time5+time4-time3+time2-time1));
     }

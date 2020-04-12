@@ -12,9 +12,9 @@ public class CutFile {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        cutFile("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample2.txt",
-                "/Users/wujiaqi/comp6521/smallfile/sameple4.txt",
-                0,20000);
+        cutFile("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt",
+                Configuration.path1,
+                100000,15000);
     }
 
     /**
