@@ -194,11 +194,11 @@ public class SmallFile {
 
         Runtime rt = Runtime.getRuntime();
         long totalMemory = rt.totalMemory();
-        int memoryListSize = (int) (totalMemory/Configuration.tupleSize /(Configuration.fileTimes*10) );
+        int memoryListSize = (int) (totalMemory/Configuration.tupleSize /(750) );
 
         MergeFiles mergeFiles = new MergeFiles();
 
-        mergeFiles.start(Configuration.fileTimes*2,memoryListSize/2);
+        mergeFiles.start(150,memoryListSize/2);
 
     }
 }
