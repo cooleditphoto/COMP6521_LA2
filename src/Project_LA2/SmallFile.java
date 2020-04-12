@@ -53,7 +53,7 @@ public class SmallFile {
         deleteFiles.start();
         int ioNum1 = io1%40==0?io1/40:io1/40+1;
         int ioNum2 = io2%4000==0?io2/4000:io2/4000+1;
-        System.out.println("total io: "+(ioNum1+2*ioNum2+MergeOperation.io));
+        System.out.println("total io: "+(ioNum1+2*ioNum2+2*MergeOperation.io));
         System.out.println("total time:" +(time6-time5+time4-time3+time2-time1));
     }
 
@@ -153,7 +153,7 @@ public class SmallFile {
         fileWriter.close();
         bufferedReader.close();
         fileReader.close();
-        //System.out.println("phase2 io: "+io);
+
     }
 
     public static void phase3() throws IOException {
@@ -165,7 +165,6 @@ public class SmallFile {
         MergeFiles mergeFiles = new MergeFiles();
 
         mergeFiles.start(2,memoryListSize);
-        //System.out.println("phase3 io: "+MergeOperation.io);
 
     }
 
