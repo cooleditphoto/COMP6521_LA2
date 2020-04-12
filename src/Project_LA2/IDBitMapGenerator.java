@@ -6,7 +6,8 @@ import java.util.HashSet;
 
 public class IDBitMapGenerator {
 
-    static int io = 0;
+    static int io1 = 0;
+    static long io2 =0;
 
     /**
      * main method
@@ -56,7 +57,7 @@ public class IDBitMapGenerator {
             int num = 0;
             String str = null;
             while(( (num<lineNum)&&(str=bufferedReader.readLine())!=null)){
-                io++;
+                io1++;
                 num++;
                 Integer id = Integer.parseInt(str.substring(0,8));
                 //store the id information in a map
@@ -77,6 +78,7 @@ public class IDBitMapGenerator {
                     StringBuffer sb = new StringBuffer();
                     HashSet resSet = map.get(i);
                     for(int p=1;p<=num;p++){
+                        io2++;
                         if(resSet.contains(p)){
                             sb.append(1);
                         }else{
@@ -85,7 +87,7 @@ public class IDBitMapGenerator {
                     }
                     //print a single line
                     printWriter.println(sb.toString());
-                    io++;
+
                 }
             }
             printWriter.close();

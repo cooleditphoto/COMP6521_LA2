@@ -22,7 +22,10 @@ public class Main {
         long time2 = new Date().getTime();
         long time3 = time2-time1;
         System.out.println("phase1 time: "+time3);
-        System.out.println("phase1 io: "+IDBitMapGenerator.io);
+        int ioNum1 = IDBitMapGenerator.io1%40==0?IDBitMapGenerator.io1/40:IDBitMapGenerator.io1/40+1;
+        int ioNum2 = IDBitMapGenerator.io2%4000==0?(int)IDBitMapGenerator.io2/4000:(int)IDBitMapGenerator.io2/4000+1;
+        int ioNum3 = ioNum1+ioNum2;
+        //System.out.println("phase1 io: "+ioNum3);
 
 
         //phase2
@@ -33,7 +36,9 @@ public class Main {
         long time5 = new Date().getTime();
         long time6 = time5-time4;
         System.out.println("phase2 time:"+ time6);
-        System.out.println("phase2 io: "+ MergePhase.io);
+        int ioNum4 = MergePhase.io2%40==0?MergePhase.io2/40:MergePhase.io2/40+1;
+        int ioNum5 = ioNum2+ioNum4;
+        //System.out.println("phase3 io: "+ioNum6);
 
         //phase3
         long time7 = new Date().getTime();
@@ -42,12 +47,12 @@ public class Main {
         long time8 = new Date().getTime();
         long time9 = time8-time7;
         System.out.println("phase3 time: "+time9);
-        System.out.println("phase3 io: "+MergeOperation.io);
+        //System.out.println("phase3 io: "+ioNum);
 
         long totalTime = time9+time6+time3;
         //result
         System.out.println("time for the whole process: "+totalTime);
-        int totalIO = IDBitMapGenerator.io+ MergePhase.io+MergeOperation.io;
+        int totalIO = ioNum3+ ioNum4 + ioNum5;
         System.out.println("io times for the whose process: "+totalIO);
 
 

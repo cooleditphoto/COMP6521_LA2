@@ -7,7 +7,8 @@ import java.util.Iterator;
 
 public class MergePhase {
 
-    static int io = 0;
+    static int io1 = 0;
+    static int io2= 0;
     /**
      * main method
      * @param args
@@ -23,17 +24,10 @@ public class MergePhase {
      * @throws IOException
      */
     public static void start() throws IOException {
-        long time1 = new Date().getTime();
-
-
         String path1 = Configuration.path1;
         String path2 = Configuration.path2;
         generate(path1,0,Configuration.fileTimes);
         generate(path2,Configuration.fileTimes,2*Configuration.fileTimes);
-
-
-        long time2 = new Date().getTime();
-        System.out.println("sort phase time: "+(time2-time1));
     }
 
     /**
@@ -55,7 +49,7 @@ public class MergePhase {
             String str;
 
             while((str=bufferedReader.readLine())!=null){
-                io++;
+                io1++;
                 int num = 0;
                 HashSet<String> set = new HashSet<>();
                 for(int i=0;i<str.length();i++){
@@ -73,7 +67,7 @@ public class MergePhase {
                     res=  (String)it.next();
                 }
                 printWriter.println(res);
-                io++;
+                io2++;
             }
             printWriter.close();
             fileWriter.close();

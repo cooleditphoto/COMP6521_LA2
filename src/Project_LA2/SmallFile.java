@@ -10,7 +10,8 @@ import java.util.Iterator;
 
 public class SmallFile {
 
-    static int totalIO =0;
+    static int io1 = 0;
+    static int io2 = 0;
 
     /**
      * main method
@@ -50,7 +51,9 @@ public class SmallFile {
         System.out.println("phase3 time:"+(time6-time5));
         DeleteFiles deleteFiles = new DeleteFiles();
         deleteFiles.start();
-        System.out.println("total io: "+(totalIO+MergeOperation.io));
+        int ioNum1 = io1%40==0?io1/40:io1/40+1;
+        int ioNum2 = io2%4000==0?io2/4000:io2/4000+1;
+        System.out.println("total io: "+(ioNum1+2*ioNum2+MergeOperation.io));
         System.out.println("total time:" +(time6-time5+time4-time3+time2-time1));
     }
 
@@ -62,7 +65,6 @@ public class SmallFile {
      */
     public static void phase1(String inputPath,String outputPath) throws IOException {
 
-        int io=0;
 
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -75,8 +77,7 @@ public class SmallFile {
 
         int num=0;
         while((((str=bufferedReader.readLine())!=null))){
-            io++;
-            totalIO++;
+            io1++;
             num++;
             int id = Integer.parseInt(str.substring(0,8));
             //store the id information in a map
@@ -95,6 +96,7 @@ public class SmallFile {
             if(map.containsKey(i)){
                 StringBuffer sb = new StringBuffer();
                 HashSet resSet = map.get(i);
+                io2++;
                 for(int p=1;p<=num;p++){
                     if(resSet.contains(p)){
                         sb.append(1);
@@ -104,15 +106,12 @@ public class SmallFile {
                 }
                 //print a single line
                 printWriter.println(sb.toString());
-                io++;
-                totalIO++;
             }
         }
         printWriter.close();
         fileWriter.close();
         bufferedReader.close();
         fileReader.close();
-        //System.out.println("phase1 io: "+io);
     }
 
 
@@ -124,7 +123,6 @@ public class SmallFile {
      * @throws IOException
      */
     public static void phase2(String path,String inputPath,String outputPath) throws IOException {
-        int io=0;
         FindRecord findRecord = new FindRecord();
         FileReader fileReader = new FileReader(inputPath);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -133,8 +131,6 @@ public class SmallFile {
         String str;
 
         while((str=bufferedReader.readLine())!=null){
-            io++;
-            totalIO++;
             int num = 0;
             HashSet<String> set = new HashSet<>();
             for(int i=0;i<str.length();i++){
@@ -152,8 +148,6 @@ public class SmallFile {
                 res=  (String)it.next();
             }
             printWriter.println(res);
-            io++;
-            totalIO++;
         }
         printWriter.close();
         fileWriter.close();
