@@ -27,12 +27,12 @@ public class IDBitMapGenerator {
      */
     public  void start() throws IOException {
         int lineNum = 10000;
-        String inputPath1 = Configuration.originalPath1;
-        String inputPath2 = Configuration.originalPath2;
+        String inputPath1 = Configuration.path1;
+        String inputPath2 = Configuration.path2;
         String outputPath = Configuration.tempContent;
 
-        generate(inputPath1,outputPath,lineNum,0,100);
-        generate(inputPath2,outputPath,lineNum,100,150);
+        generate(inputPath1,outputPath,lineNum,0,Configuration.fileTimes);
+        generate(inputPath2,outputPath,lineNum,Configuration.fileTimes,2*Configuration.fileTimes);
 
     }
 

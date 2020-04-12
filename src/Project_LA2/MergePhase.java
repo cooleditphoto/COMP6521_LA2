@@ -26,8 +26,8 @@ public class MergePhase {
     public static void start() throws IOException {
         String path1 = Configuration.path1;
         String path2 = Configuration.path2;
-        generate(path1,0,100);
-        generate(path2,100,150);
+        generate(path1,0,Configuration.fileTimes);
+        generate(path2,Configuration.fileTimes,2*Configuration.fileTimes);
     }
 
     /**
