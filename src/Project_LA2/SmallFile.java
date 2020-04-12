@@ -29,10 +29,10 @@ public class SmallFile {
 
         String originalPath1 = Configuration.path1;
         String originalPath2 = Configuration.path2;
-        String phase1OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output1.txt";
-        String phase1OutputPath2 ="/Users/wujiaqi/comp6521/smallfile/output2.txt";
-        String phase2OutputPath1 ="/Users/wujiaqi/comp6521/smallfile/output3.txt";
-        String phase2OutputPath2 ="/Users/wujiaqi/comp6521/smallfile/output4.txt";
+        String phase1OutputPath1 =Configuration.phase1Path1;
+        String phase1OutputPath2 =Configuration.phase1Path2;
+        String phase2OutputPath1 =Configuration.phase2Path1;
+        String phase2OutputPath2 =Configuration.phase2Path2;
 
         long time1 = new Date().getTime();
         phase1(originalPath1,phase1OutputPath1);
@@ -49,7 +49,7 @@ public class SmallFile {
         long time6 = new Date().getTime();
         System.out.println("phase3 time:"+(time6-time5));
         DeleteFiles deleteFiles = new DeleteFiles();
-        //deleteFiles.deleteFiles();
+        deleteFiles.start();
         System.out.println("total io: "+(totalIO+MergeOperation.io));
         System.out.println("total time:" +(time6-time5+time4-time3+time2-time1));
     }

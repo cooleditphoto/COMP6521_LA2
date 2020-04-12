@@ -20,7 +20,7 @@ public class MergeOperation {
         String[] fileAddress = new String[subListsNum];
         for (int i=1;i<=subListsNum;i++){
             //fileAddress[i-1] = Configuration.tempContent2 + (i-1) + ".txt";
-            fileAddress[i-1] = "/Users/wujiaqi/comp6521/smallfile/output" + (i+2) + ".txt";
+            fileAddress[i-1] = "src/Data_Files/output" + (i+2) + ".txt";
         }
         return  fileAddress;
     }
@@ -152,7 +152,8 @@ public class MergeOperation {
      * @throws IOException
      */
     public void outputFile(List<String> subList) throws IOException {
-        FileWriter fw  = new FileWriter(Configuration.idOutput,true);
+        //FileWriter fw  = new FileWriter(Configuration.idOutput,true);
+        FileWriter fw  = new FileWriter(Configuration.demoOutput,true);
         PrintWriter pw = new PrintWriter(fw);
         //output every element in the sublist
         for(String str:subList){
@@ -168,7 +169,8 @@ public class MergeOperation {
      * @throws IOException
      */
     public void fileInit() throws IOException {
-        FileWriter fw  = new FileWriter(Configuration.idOutput);
+        //FileWriter fw  = new FileWriter(Configuration.idOutput);
+        FileWriter fw  = new FileWriter(Configuration.demoOutput);
         PrintWriter pw = new PrintWriter(fw);
         pw.close();
         fw.close();

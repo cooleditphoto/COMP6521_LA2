@@ -12,8 +12,8 @@ public class CutFile {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        cutFile("/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt",
-                Configuration.path1,
+        cutFile(Configuration.originalPath2,
+                Configuration.path2,
                 100000,15000);
     }
 
