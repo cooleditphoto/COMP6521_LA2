@@ -8,7 +8,7 @@ public class LineNum {
 
     public static void main(String[] args) throws IOException {
         //String path = Configuration.idOutput;
-        String path = Configuration.idOutput;
+        String path = Configuration.demoOutput;
         System.out.println(getLineNum(path));
     }
 
