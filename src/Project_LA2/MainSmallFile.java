@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class SmallFile {
+public class MainSmallFile {
 
     static int io1 = 0;
     static int io2 = 0;

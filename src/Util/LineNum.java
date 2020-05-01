@@ -6,12 +6,23 @@ import java.io.*;
 
 public class LineNum {
 
+    /**
+     * main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         //String path = Configuration.idOutput;
         String path = Configuration.demoOutput;
         System.out.println(getLineNum(path));
     }
 
+    /**
+     * calculate the line number of the file
+     * @param path
+     * @return
+     * @throws IOException
+     */
     public static int getLineNum(String path) throws IOException {
         FileReader fileReader = new FileReader(path);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

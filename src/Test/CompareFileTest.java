@@ -10,11 +10,15 @@ import java.io.IOException;
 
 public class CompareFileTest {
 
+    /**
+     * check wheather two files are same
+     * @throws IOException
+     */
     @Test
     public void test01() throws IOException {
 
         String path1 = Configuration.idOutput;
-        String path2 = "/Users/wujiaqi/Desktop/phase2_output(2w).txt";
+        String path2 = "";
         boolean flag = false;
         FileReader fr1 = new FileReader(path1);
         BufferedReader br1 = new BufferedReader(fr1);

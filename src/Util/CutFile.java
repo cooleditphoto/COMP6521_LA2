@@ -14,7 +14,7 @@ public class CutFile {
     public static void main(String[] args) throws IOException {
         cutFile(Configuration.originalPath2,
                 Configuration.path2,
-                7265,18276);
+                7265,19999);
     }
 
     /**

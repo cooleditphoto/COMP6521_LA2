@@ -7,12 +7,17 @@ import java.util.HashSet;
 
 public class RepeatNum {
 
+    /**
+     * repeat file number main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         int num = 0;
-        String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample1.txt";
+        String path = "";
         FileReader fileReader = new FileReader(path);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String path2 = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/src/Data_Files/sample2.txt";
+        String path2 = "";
         FileReader fileReader2 = new FileReader(path2);
         BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
         HashSet<String> set =new HashSet<>();

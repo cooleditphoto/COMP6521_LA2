@@ -9,6 +9,10 @@ import java.io.IOException;
 
 public class SameLineNumTest {
 
+    /**
+     * test how many lines are same in two files
+     * @throws IOException
+     */
     @Test
     public void sameLineNumTest() throws IOException {
         String path1 = "";

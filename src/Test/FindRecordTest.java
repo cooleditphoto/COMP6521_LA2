@@ -11,8 +11,13 @@ import java.util.Date;
 
 public class FindRecordTest {
 
+    /**
+     * main method
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
-        String path = "/Users/wujiaqi/IdeaProjects/COMP6521_LA2/test01.txt";
+        String path = "";
         RandomAccessFile file = new RandomAccessFile(path, "rw");
         ArrayList<Integer> list  = new ArrayList<>();
         for(int i=1;i<=1000;i++){
@@ -47,17 +52,20 @@ public class FindRecordTest {
         System.out.println(time4-time3);
         bufferedReader2.close();
         fileReader2.close();
-
-
         file.close();
 
         System.out.println("result: "+((time4-time3)-(time2-time)));
 
-
-
     }
 
 
+    /**
+     * file record from the file
+     * @param file
+     * @param lineNum
+     * @return
+     * @throws IOException
+     */
     public static String findRecordFromFile( RandomAccessFile file, int lineNum) throws IOException {
 
         long position = (lineNum-1) * 100;

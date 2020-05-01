@@ -10,6 +10,10 @@ import java.util.Date;
 
 public class CompressBitmapTest {
 
+    /**
+     * compress bitmap file test
+     * @throws IOException
+     */
     @Test
     public void testCompressBitmap() throws IOException {
         //compress sex bitmap

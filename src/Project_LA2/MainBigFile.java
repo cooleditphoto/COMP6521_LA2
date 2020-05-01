@@ -5,7 +5,7 @@ import Util.DeleteFiles;
 import java.io.IOException;
 import java.util.Date;
 
-public class Main {
+public class MainBigFile {
     public static void main(String[] args) throws IOException {
         //get memory size
         Runtime rt = Runtime.getRuntime();
@@ -42,8 +42,8 @@ public class Main {
 
         //phase3
         long time7 = new Date().getTime();
-        SmallFile smallFile = new SmallFile();
-        smallFile.mergeFile();
+        MainSmallFile mainSmallFile = new MainSmallFile();
+        mainSmallFile.mergeFile();
         long time8 = new Date().getTime();
         long time9 = time8-time7;
         System.out.println("phase3 time: "+time9);
