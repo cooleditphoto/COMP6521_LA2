@@ -5,5 +5,5 @@ This is the second lab project of course COMP6521. The purpose is to merge and d
 
 ### Configuration
 1. Language: Java
-2. Algorithm: Bitmap index
+2. Method: Bitmap index
 3. Test Framework: JUnit4
