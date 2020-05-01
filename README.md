@@ -13,3 +13,4 @@ This is the second lab project of course COMP6521. The purpose is to merge and d
 2. Compress three Bitmap indexes to generate three compressed files.
 3. According to the information of the EmpID Bitmap index, find the corresponding lines in the original file and output them to a new file. This process can achieve sorting and deduplication.
 4. Merge two files to get the final output file. This process can achieve deduplicating again.
+
